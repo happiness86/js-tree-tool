@@ -169,6 +169,13 @@ function testRemoveNode () {
   console.log(tree)
 }
 
+function testForEachByLevel () {
+  const tree = getTree()
+  const idList = []
+  instance.forEachByLevel(tree, node => idList.push(node.id))
+  console.log(idList)
+}
+
 function test () {
   // testToList()
   // testFromList()
@@ -180,7 +187,8 @@ function test () {
   // testFindPathAll()
   // testInsertBefore()
   // testInsertAfter()
-  testRemoveNode()
+  // testRemoveNode()
+  testForEachByLevel()
 }
 
 test()

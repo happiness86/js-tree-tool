@@ -109,6 +109,39 @@ const tools = {
     }
   },
 
+  iterator (tree, func, config = {}) {
+    config = getConfig(config)
+    const list = [...tree], { children } = config
+    for (let i = 0; i < list.length; i++) {
+      const result = func(list[i])
+      if (!result) {
+        continue
+      }
+      list[i][children] && list.splice(i + 1, 0, ...list[i][children])
+    }
+  },
+
+  forEachByLevel(tree, func, config = {}) {
+    config = getConfig(config)
+    const { children } = config, list = [...tree]
+    for (let node of list) {
+      func(node)
+      node[children] && list.push(...node[children])
+    }
+  },
+
+  iteratorByLevel(tree, func, config = {}) {
+    config = getConfig(config)
+    const { children } = config, list = [...tree]
+    for (let node of list) {
+      const result = func(node)
+      if (!result) {
+        continue
+      }
+      node[children] && list.push(...node[children])
+    }
+  },
+
   _insert (tree, node, targetNode, config, after) {
     config = getConfig(config)
     const { children } = config

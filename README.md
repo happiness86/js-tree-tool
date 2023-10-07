@@ -9,9 +9,9 @@ tree-tool是一个用于处理js树结构的一些函数，无任何依赖，体
 ## 二、安装
 ```bash
 #使用yarn
-yarn add tree-tool
+yarn add cool-tree-tool
 #使用npm
-npm install tree-tool
+npm install cool-tree-tool
 ```
 
 ## 三、使用
